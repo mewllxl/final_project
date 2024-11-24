@@ -1,0 +1,8 @@
+
+$("#like-count").text("<%= @post.likes.count %> Likes");
+
+if ("<%= liked %>" === "true") {
+  $("#like-button p").text("You liked this post!");
+} else {
+  $("#like-button p").text("Like");
+}

@@ -1,0 +1,47 @@
+<h1 class="register-title">Register</h1>
+
+<div class="register-container">
+  <div class="register-form">
+    <%= form_with model: @user, local: true do |form| %>
+      
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-input", placeholder: "Enter your name" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :email, class: "form-label" %>
+        <%= form.email_field :email, class: "form-input", placeholder: "Enter your email" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :password, class: "form-label" %>
+        <%= form.password_field :password, class: "form-input", placeholder: "Enter your password" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :password_confirmation, class: "form-label" %>
+        <%= form.password_field :password_confirmation, class: "form-input", placeholder: "Confirm your password" %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Register", class: "btn-register" %>
+      </div>
+    <% end %>
+
+    <div class="login-link">
+      <p>Already have an account? <%= link_to "Login", login_path, class: "login-link-text" %></p>
+    </div>
+  </div>
+</div>

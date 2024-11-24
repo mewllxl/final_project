@@ -1,0 +1,282 @@
+/* สไตล์พื้นฐานของเว็บ */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fc;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* กำหนดพื้นที่สำหรับโพสต์ */
+.container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.search-form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+  width: 60%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-form .actions {
+  margin-top: 10px;
+}
+
+.search-form input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* การจัดการโพสต์ */
+.posts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-item {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
+
+.post-header {
+  margin-bottom: 15px;
+}
+
+.post-header h3 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.post-meta {
+  font-size: 1rem;
+  color: #666;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.like-section {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-like {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-like:hover {
+  background-color: #218838;
+}
+
+.comments-section {
+  margin-top: 20px;
+}
+
+.comments {
+  list-style: none;
+  padding: 0;
+}
+
+.comment {
+  margin-bottom: 10px;
+}
+
+.comment p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.delete-form {
+  display: inline;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comment-form input[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form input[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.post-actions {
+  margin-top: 20px;
+}
+/* การจัดการปุ่ม Login | Register */
+.auth-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ปุ่ม Login */
+.btn-login {
+  background-color: #007bff; /* สีน้ำเงิน */
+  color: white;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-login:hover {
+  background-color: #0056b3; /* เมื่อโฮเวอร์ */
+  transform: translateY(-2px); /* เคลื่อนย้ายเล็กน้อยเพื่อให้ดูมีชีวิตชีวา */
+}
+
+/* ปุ่ม Register */
+.btn-register {
+  background-color: #28a745; /* สีเขียว */
+  color: white;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-register:hover {
+  background-color: #218838; /* เมื่อโฮเวอร์ */
+  transform: translateY(-2px); /* เคลื่อนย้ายเล็กน้อยเพื่อให้ดูมีชีวิตชีวา */
+}
+
+/* เพิ่มการจัดระเบียบให้กับปุ่ม */
+.auth-buttons .btn {
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-buttons .btn:active {
+  transform: translateY(2px); /* เมื่อคลิก ปุ่มจะถูกดันลงไปเล็กน้อย */
+}
+/* Welcome Message */
+.welcome-message {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  background-color: #e7f5e5; /* สีพื้นหลังที่อ่อน */
+  padding: 15px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
+  text-align: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.welcome-message strong {
+  color: #28a745; /* ใช้สีเขียวสดใสเพื่อเน้นชื่อผู้ใช้ */
+}
+
+.welcome-message:hover {
+  background-color: #d4f8d4; /* เปลี่ยนสีเมื่อ hover */
+  color: #1e7e34; /* เปลี่ยนสีตัวอักษรเมื่อ hover */
+}
+
+.welcome-message::before {
+  content: "🌟 "; /* ใส่อิโมจิของดาวก่อนข้อความ */
+  font-size: 1.5rem;
+}
+.notice {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+
+

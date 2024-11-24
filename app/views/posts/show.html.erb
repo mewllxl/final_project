@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="post-header">
+    <h1><%= @post.title %></h1>
+    <p class="post-meta">Posted by <%= @post.user.name %> on <%= @post.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+
+  <div class="post-content">
+    <p><%= @post.content %></p>
+  </div>
+
+  <!-- แสดงจำนวนไลค์ -->
+  <div class="like-section">
+    <p id="like-count"><%= @post.likes.count %> Likes</p>
+
+    <!-- แสดงปุ่ม Like หรือข้อความที่บอกว่าไลค์แล้ว -->
+    <%= link_to like_post_path(@post), method: :post, remote: true, id: "like-button" do %>
+      <% if @post.liked_users.include?(current_user) %>
+        <p>You liked this post!</p>
+      <% else %>
+        <p>Like</p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="comments-section">
+    <h3>Comments</h3>
+
+    <!-- แสดงคอมเมนต์ -->
+    <ul class="comments">
+      <% @post.comments.each do |comment| %>
+        <li class="comment">
+          <p><%= comment.content %> - <%= comment.user ? comment.user.name : "Anonymous" %></p>
+          <!-- ปุ่มลบคอมเมนต์เฉพาะเจ้าของคอมเมนต์หรือเจ้าของโพสต์ -->
+          <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" if comment.user == current_user || @post.user == current_user %>
+        </li>
+      <% end %>
+    </ul>
+
+    <!-- ฟอร์มเพิ่มคอมเมนต์ -->
+    <div class="comment-form">
+      <%= form_with model: [@post, @post.comments.build], local: true do |form| %>
+        <div class="field">
+          <%= form.label :content, "Add a Comment" %>
+          <%= form.text_area :content, rows: 3 %>
+        </div>
+        <div class="actions">
+          <%= form.submit "Add Comment" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript สำหรับการอัปเดตข้อมูลแบบ AJAX -->
+<script>
+  document.addEventListener("turbo:load", function() {
+    // จับการคลิกที่ปุ่ม Like
+    $("#like-button").on("ajax:success", function(event, data, status, xhr) {
+      // อัปเดตจำนวนไลค์
+      $("#like-count").text(data.likes_count + " Likes");
+
+      // อัปเดตข้อความที่แสดงในปุ่ม
+      if (data.liked) {
+        $("#like-button p").text("You liked this post!");
+      } else {
+        $("#like-button p").text("Like");
+      }
+    });
+  });
+</script>

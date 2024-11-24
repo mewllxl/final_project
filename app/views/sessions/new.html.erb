@@ -1,0 +1,26 @@
+<h1 class="login-title">Login</h1>
+
+<div class="login-container">
+  <div class="login-form">
+    <%= form_with url: login_path, local: true do |form| %>
+      
+      <div class="field">
+        <%= form.label :email, class: "form-label" %>
+        <%= form.email_field :email, class: "form-input", placeholder: "Enter your email" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :password, class: "form-label" %>
+        <%= form.password_field :password, class: "form-input", placeholder: "Enter your password" %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Login", class: "btn-login" %>
+      </div>
+    <% end %>
+
+    <div class="register-link">
+      <p>Don't have an account? <%= link_to "Register", new_user_path, class: "register-link-text" %></p>
+    </div>
+  </div>
+</div>
