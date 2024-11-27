@@ -1,39 +1,129 @@
-/* สไตล์พื้นฐานของเว็บ */
+
+
+/* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f7fc;
+  font-family: 'Lora', serif;
+  background-color: #d1e1fe;
   margin: 0;
   padding: 0;
   color: #333;
   line-height: 1.6;
 }
 
-/* กำหนดพื้นที่สำหรับโพสต์ */
 .container {
-  width: 80%;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin: 20px ;
   padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  margin-top: 50px;
+  border: 3px solid black;
+  background: linear-gradient(to right, #9d6363, #5b5c5c)
+}
+
+/* Headers */
+h1, h2 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
 }
 
 h1 {
+  font-family: 'Lora', serif;
   font-size: 2.5rem;
   text-align: center;
   color: #333;
   margin-bottom: 20px;
+  background-color: white;
+  border: 2px solid black; 
+  padding: 15px 0px 15px 0px;
+  margin-left: 300px;
+  margin-right: 300px;
+  border-radius: 30px; 
+  padding-left: 20px;
+  padding-right: 20px;
+  
 }
 
+
+
+h2 {
+  font-family: 'Lora', serif;
+  margin-top: 10px;
+  display: inline-block;
+ margin-bottom: 2px;
+  color: #333;
+}
+h4 {
+  font-family: 'Lora', serif;
+  font-size: 30px;
+  color: #333;
+  margin-bottom: 2px;
+  margin-top: 2px;
+ 
+  
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* ระยะห่างระหว่างฟิลด์ */
+  align-items: center; /* จัดกลางแนวนอน */
+  justify-content: center; /* จัดกลางแนวตั้ง */
+  margin: 30px;
+}
+
+/* ช่องอินพุตและ Textarea */
+.form-container input[type="text"],
+.form-container textarea {
+  width: 100%;
+  padding-right: 30PX;
+  padding: 12px;
+  border: 2px solid #e0e0e0; /* เส้นขอบสีเทาอ่อน */
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #fdfdfd;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* อินพุต hover และ focus */
+.form-container input[type="text"]:hover,
+.form-container textarea:hover,
+.form-container input[type="text"]:focus,
+.form-container textarea:focus {
+  border-color: #007bff; /* เปลี่ยนขอบเป็นสีน้ำเงิน */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* เพิ่มแสงเงาสีน้ำเงิน */
+  outline: none;
+}
+
+/* ปุ่ม submit */
+.form-container input[type="submit"] {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color:transparent; /* สีเขียว */
+  border-color:green;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: center;
+  width: auto;
+  margin-left: 90px;
+}
+
+/* ปุ่ม hover */
+.form-container input[type="submit"]:hover {
+  background-color: #a1deae; /* สีเขียวเข้ม */
+  transform: scale(1.05); /* ขยายปุ่มเล็กน้อย */
+}
+
+
+/* Search Form */
 .search-form {
-  text-align: center;
-  margin-bottom: 20px;
+  text-align: start;
+  margin-bottom: 10px;
 }
 
 .search-form input[type="text"] {
-  width: 60%;
+  width: 30%;
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -45,18 +135,28 @@ h1 {
 }
 
 .search-form input[type="submit"] {
-  background-color: #007bff;
-  color: white;
   padding: 10px 20px;
-  border: none;
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid #333; /* เส้นขอบสีดำ */
+  color: #333; /* ตัวอักษรสีดำ */
+  background-color: transparent;
 }
 
 .search-form input[type="submit"]:hover {
-  background-color: #0056b3;
+  
+  background-color: #333;  /* สีพื้นหลังเมื่อชี้ */
+  color: white;  
+}
+.search-icon {
+  position: absolute;
+  width: 200px; /* กำหนดขนาดรูป */
+  height: auto;
+  margin-left: 300px; /* กำหนดระยะห่างจากช่องกรอก */
 }
 
-/* การจัดการโพสต์ */
+/* Posts List */
 .posts-list {
   list-style: none;
   padding: 0;
@@ -64,99 +164,227 @@ h1 {
 
 .post-item {
   margin-bottom: 30px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 20px;
-}
-
-.post-header {
-  margin-bottom: 15px;
+  padding: 20px;
+  background-color: #275620;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 10px solid #522222;
+  list-style: none;
+  position: relative;
 }
 
 .post-header h3 {
-  font-size: 1.8rem;
-  color: #333;
+  font-size:50px ;
+  color: #fcf9f9;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Lora', serif;
+  text-align: center;
 }
-
+  
 .post-meta {
-  font-size: 1rem;
-  color: #666;
+  font-size: 0.9rem;
+  color:black;
+  position: absolute; 
+  right: 10px; 
+  bottom: 0px; 
+  margin: 0px;
+ 
 }
 
 .post-content {
-  font-size: 1.1rem;
-  color: #555;
+  font-size: 20px;
+  color:rgb(252, 250, 250);
+  margin: 10px;
+  margin-top: 20px;
   line-height: 1.6;
 }
-
+.new-post-container {
+  text-align: center; /* จัดตำแหน่งให้อยู่ตรงกลางแนวนอน */
+  margin: 20px 0; 
+}
 .like-section {
-  margin-top: 10px;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px; 
 }
 
+.like-section p {
+  margin-left: 8px;
+  font-size: 1rem;
+  color: #4504f8; 
+}
+.post-actions{
+  position: absolute; 
+  right: 10px; 
+  top: 10px; 
+  margin: 0px;
+  display: flex; 
+  background-color: transparent;
+  
+}
+.btn-edit {
+  border-color: transparent;  
+  font-size: 20px;  
+  text-decoration: none; 
+  padding-right: 10px;  
+  cursor: pointer;  
+}
+.btn-delete {
+  border-color: transparent;  
+  font-size: 20px;  
+  text-decoration: none; 
+  cursor: pointer; 
+  background-color: transparent;
+}
+
+.btn-like {
+  border: none;
+  color: white; 
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%; 
+  text-decoration: none; 
+  
+}
+
+.btn-like:hover {
+  background-color: green; /* พื้นหลังสีเขียวเมื่อยังไม่กด */
+  opacity: 0.8; /* เพิ่มเอฟเฟกต์เมื่อชี้เมาส์ */
+}
+.btn-add-comment {
+  display: inline-block; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  font-weight: bold; 
+  color: black;
+  background-color:transparent;
+  border: 2px solid #333; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  margin-left: 20px;
+}
+
+.btn-add-comment:hover {
+  background-color: #7e7a77; 
+  color: #ffffff; 
+}
 .btn {
-  padding: 10px 20px;
-  border-radius: 5px;
+  display: inline-block;
+  padding: 8px 12px;
   text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 2px solid #333;  /* เพิ่มขอบหนา 2px และสีขอบเป็น #333 */
 }
 
+/* ปุ่ม primary */
 .btn-primary {
-  background-color: #007bff;
-  color: white;
+  border: 2px solid #333; /* เส้นขอบสีดำ */
+  color: #333; /* ตัวอักษรสีดำ */
+  background-color: transparent; /* ใช้สีเดียวกับพื้นหลัง */
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #333;  /* สีพื้นหลังเมื่อชี้ */
+  color:white;   /* เปลี่ยนสีขอบเมื่อ hover */
+}
+.btn-logout {
+  border: 2px solid #333; /* เส้นขอบสีดำ */
+  color: #333; /* ตัวอักษรสีดำ */
+  background-color: transparent; /* ใช้สีเดียวกับพื้นหลัง */
+  padding:5px
 }
 
+.btn-logout:hover {
+  background-color: #333;  /* สีพื้นหลังเมื่อชี้ */
+  color: white;   /* เปลี่ยนสีขอบเมื่อ hover */
+}
+
+.user-links {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+/* ปุ่ม secondary */
 .btn-secondary {
   background-color: #6c757d;
   color: white;
+  border-color: #6c757d; /* ใช้สีเดียวกับพื้นหลัง */
 }
 
 .btn-secondary:hover {
   background-color: #5a6268;
 }
 
-.btn-like {
-  background-color: #28a745;
-  color: white;
+
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  margin-top: 15px;
 }
 
-.btn-like:hover {
-  background-color: #218838;
+.btn-back {
+  background-color: transparent;
+  border: 2px solid #333; 
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  padding: 4px 8px;
 }
 
+.btn-back:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+
+
+
+
+/* Comments Section */
 .comments-section {
-  margin-top: 20px;
+  margin-top: 0px;
+  padding: 0;
+  
 }
 
 .comments {
-  list-style: none;
+ 
   padding: 0;
+  
 }
 
+.comment-text {
+  margin-top: 3px;  
+  margin-bottom: 3px; 
+}
+
+
 .comment {
-  margin-bottom: 10px;
+  
+  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+  padding-top: 0px;
+}
+.delete-form{
+  color: #670303;
 }
 
 .comment p {
   font-size: 1rem;
-  color: #555;
-}
-
-.delete-form {
-  display: inline;
-}
-
-.btn-delete {
-  background-color: #dc3545;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.btn-delete:hover {
-  background-color: #c82333;
+  color: #fbf6f6;
 }
 
 .comment-form {
@@ -182,101 +410,106 @@ h1 {
 .comment-form input[type="submit"]:hover {
   background-color: #218838;
 }
-
-.post-actions {
-  margin-top: 20px;
+.comment-textarea {
+  width: 20%; 
+  height: 30px; 
+  padding: 10px; 
+  margin: 10px 0;
+  font-size: 14px; 
+  line-height: 1.5; 
+  border: 2px solid #333; 
+  border-radius: 8px; 
+  background-color: #ffffff; 
+  color: #333; 
+  resize: none; 
 }
-/* การจัดการปุ่ม Login | Register */
+
+.comment-textarea:focus {
+  border-color: #3e3f40; 
+  outline: none; 
+}
+
+
+/* Auth Buttons */
 .auth-buttons {
-  text-align: center;
-  margin-top: 20px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
 }
 
-/* ปุ่ม Login */
-.btn-login {
-  background-color: #007bff; /* สีน้ำเงิน */
-  color: white;
-  padding: 12px 30px;
-  font-size: 1.1rem;
+.auth-buttons .btn {
+  display: inline-block;
+  padding: 3px 6px;
+  margin-top: 15px;
   text-decoration: none;
-  border-radius: 5px;
-  margin-right: 10px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid #333; 
+  color: #333; 
+  background-color:transparent; 
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.auth-buttons .btn:hover {
+  background-color: #333;  
+  color: white;            
+}
+.btn-login {
+  background-color: #f6f6f7;
 }
 
 .btn-login:hover {
-  background-color: #0056b3; /* เมื่อโฮเวอร์ */
-  transform: translateY(-2px); /* เคลื่อนย้ายเล็กน้อยเพื่อให้ดูมีชีวิตชีวา */
+  background-color: #0056b3;
 }
 
-/* ปุ่ม Register */
 .btn-register {
-  background-color: #28a745; /* สีเขียว */
-  color: white;
-  padding: 12px 30px;
-  font-size: 1.1rem;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-left: 10px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #28a745;
 }
 
 .btn-register:hover {
-  background-color: #218838; /* เมื่อโฮเวอร์ */
-  transform: translateY(-2px); /* เคลื่อนย้ายเล็กน้อยเพื่อให้ดูมีชีวิตชีวา */
+  background-color: #218838;
 }
 
-/* เพิ่มการจัดระเบียบให้กับปุ่ม */
-.auth-buttons .btn {
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.auth-buttons .btn:active {
-  transform: translateY(2px); /* เมื่อคลิก ปุ่มจะถูกดันลงไปเล็กน้อย */
-}
 /* Welcome Message */
 .welcome-message {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #333;
-  background-color: #e7f5e5; /* สีพื้นหลังที่อ่อน */
-  padding: 15px;
+  background-color: transparent;
   border-radius: 8px;
   display: inline-block;
-  margin-top: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
-  text-align: center;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.welcome-message strong {
-  color: #28a745; /* ใช้สีเขียวสดใสเพื่อเน้นชื่อผู้ใช้ */
-}
-
-.welcome-message:hover {
-  background-color: #d4f8d4; /* เปลี่ยนสีเมื่อ hover */
-  color: #1e7e34; /* เปลี่ยนสีตัวอักษรเมื่อ hover */
-}
-
-.welcome-message::before {
-  content: "🌟 "; /* ใส่อิโมจิของดาวก่อนข้อความ */
-  font-size: 1.5rem;
-}
-.notice {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  text-align: center;
-  margin: 10px 0;
-  font-weight: bold;
+  position: absolute;
+  top: 2px;
+  left: 80px;
+  z-index: 10;
+  font-family: 'Lora', serif;
+  
 }
 
 
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .search-form input[type="text"] {
+    width: 100%;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    top: 15px;
+    right: 15px;
+  }
+
+  .auth-buttons .btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}

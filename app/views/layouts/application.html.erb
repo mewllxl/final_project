@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= content_for(:title) || "Myapp" %></title>
+    <title><%= content_for(:title) || "mew🩷" %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -14,13 +14,16 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Stylesheets -->
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+  <div class="back-button">
+  <%= link_to 'Back', request.referer || posts_path, class: 'btn btn-back' %>
+</div>
     <div class="container">
       <%= yield %>
       <p class="notice"><%= notice %></p>
@@ -28,14 +31,14 @@
 
       <% if logged_in? %>
         <div class="user-info">
-          <p class="welcome-message">Welcome, <strong><%= current_user.name %></strong>!</p>
-          <div class="user-links">
-            <%= link_to "Posts", posts_path, class: "btn btn-primary" %>
-            <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-logout" %>
+          <p class="welcome-message">👤 I <strong><%= current_user.name %></strong>!</p>
+          <div class="user-links"style="margin-top: 20px;margin-right:20px ">
+            <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-logout"%>
           </div>
         </div>
       <% else %>
         <div class="auth-buttons">
+          <i class="fas fa-user" style="margin-top: 25px; font-size: 20px;"></i>
           <%= link_to "Login", login_path, class: "btn btn-login" %>
           <%= link_to "Register", new_user_path, class: "btn btn-register" %>
         </div>

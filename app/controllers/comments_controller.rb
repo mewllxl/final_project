@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to post_path(@post), notice: "Comment added!"
+      redirect_to root_path(@post), notice: "Comment added!"
     else
       redirect_to post_path(@post), alert: "Comment can't be empty"
     end
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
     else
       flash[:alert] = 'Unable to delete comment.'
     end
-    redirect_to post_path(@post)
+    redirect_to root_path(@post)
   end
 
   private

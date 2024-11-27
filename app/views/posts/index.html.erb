@@ -1,76 +1,95 @@
 <div class="container">
-  <h1>All Posts</h1>
 
-  <!-- ลิงก์ไปยังหน้าเพิ่มโพสต์ใหม่ -->
-  <%= link_to "New Post", new_post_path, class: "btn btn-primary" %>
+  <h1>Post Nin Ta ><</h1>
 
-  <!-- ฟอร์มค้นหาโพสต์ -->
-  <div class="search-form">
-    <%= form_with(url: posts_path, method: :get, local: true) do |form| %>
-      <div class="field">
-        <%= form.label :search, "Search posts" %>
-        <%= form.text_field :search, value: params[:search], placeholder: "Search by title or content" %>
-      </div>
-      <div class="actions">
-        <%= form.submit "Search", class: "btn btn-secondary" %>
-      </div>
-    <% end %>
+  <!-- Section for Creating New Posts -->
+  <div class="new-post-container">
+    <%= link_to "New Post", new_post_path, class: "btn btn-primary" %>
   </div>
 
-  <!-- แสดงโพสต์ทั้งหมด -->
-  <ul class="posts-list">
-    <% @posts.each do |post| %>
-      <li class="post-item">
-        <div class="post-header">
-          <h3><%= post.title %></h3>
-          <p class="post-meta">By: <%= post.user.name %> on <%= post.created_at.strftime("%B %d, %Y") %></p>
+  <!-- Section for Searching Posts -->
+  <div class="section search-post">
+    <h2>🧐 What do you want to know?</h2>
+    <div class="search-form">
+      <%= form_with(url: posts_path, method: :get, local: true) do |form| %>
+        <div class="field">
+          <%= form.text_field :search, value: params[:search], placeholder: "Tell me what you want to find..." %>
+          <%= form.submit "Let go!!!", class: "btn btn-secondary" %>
+          <!-- Icon for Search -->
+          <img src="https://www.pngarts.com/files/5/Superman-PNG-Download-Image.png" alt="Search Icon" class="search-icon">
         </div>
-        <p class="post-content"><%= post.content.truncate(150) %>...</p>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Section for Displaying Posts -->
+  <div class="section posts-list">  
+    <h2>All I Know</h2>
+    <ul>
+      <% @posts.each do |post| %>
+        <li class="post-item">
+          <!-- Post Header -->
         
-        <!-- แสดงจำนวนไลค์ -->
-        <div class="like-section">
-          <p><%= post.likes.count %> Likes</p>
-          <%= link_to "Like", like_post_path(post), method: :post, class: "btn btn-like" %>
-        </div>
-
-        <!-- แสดงคอมเมนต์ -->
-        <div class="comments-section">
-          <h4>Comments:</h4>
-          <ul class="comments">
-            <% post.comments.each do |comment| %>
-              <li class="comment">
-                <p><%= comment.content %> - <%= comment.user ? comment.user.name : "Anonymous" %></p>
-                <% if comment.user == current_user || post.user == current_user %>
-                  <%= form_with(url: post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-form") do %>
-                    <%= submit_tag "Delete", class: "btn btn-delete" %>
-                  <% end %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-
-          <!-- ฟอร์มเพิ่มคอมเมนต์ -->
-          <%= form_with model: [post, post.comments.build], local: true do |form| %>
-            <div class="field">
-              <%= form.label :content, "Add a comment:" %>
-              <%= form.text_area :content, rows: 3 %>
-            </div>
-            <div class="actions">
-              <%= form.submit "Add Comment", class: "btn btn-add-comment" %>
-            </div>
-          <% end %>
-        </div>
-
-        <!-- ลิงก์ Edit และ Delete เฉพาะเจ้าของโพสต์ -->
-        <% if post.user == current_user %>
-          <div class="post-actions">
-            <%= link_to "Edit", edit_post_path(post), class: "btn btn-edit" %>
-            <%= form_with(url: post_path(post), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-form") do %>
-              <%= submit_tag "Delete", class: "btn btn-delete" %>
-            <% end %>
+          <div class="post-header">
+            <h3><%= post.title %></h3>
+            
+            <p class="post-meta">
+             user : <%= post.user.name %>  <br>
+             date :<%= post.created_at.strftime("%B %d, %Y") %>
+            </p>
           </div>
+
+          <!-- Post Content -->
+          <p class="post-content"><%= post.content.truncate(150) %><3</p>
+
+          <!-- Like Section -->
+          <div class="like-section">
+            <p><%= post.likes.count %> Likes</p>
+            <%= link_to "👍", like_post_path(post), method: :post, class: "btn-like" %>
+            </div>
+
+          <!-- Comment Section -->
+          <div class="comments-section">
+            <h4>Comments</h4>
+            <ul class="comments">
+              <% post.comments.each do |comment| %>
+                <li class="comment">
+                <p class="comment-text">
+                <%= comment.content %> < <%= comment.user ? comment.user.name : "Anonymous" %> >
+              </p>
+                  <% if comment.user == current_user || post.user == current_user %>
+                    <%= form_with(url: post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-form") do %>
+                      <%= submit_tag "⛔", class: "btn-delete" %>
+                    <% end %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+
+            <!-- Form to Add Comment -->
+            <%= form_with model: [post, post.comments.build], local: true do |form| %>
+              <div class="field">
+                <%= form.text_area :content, rows: 3, class: "comment-textarea" %>
+              </div>
+              <div class="actions">
+                <%= form.submit "Add Comment", class: "btn btn-add-comment" %>
+              </div>
+            <% end %>
+            
+          </div>
+
+          <!-- Actions for Editing and Deleting Posts -->
+          <% if post.user == current_user %>
+          <div class="post-actions">
+            <%= link_to "✏️", edit_post_path(post), class: "btn-edit" %> 
+           <%= form_with(url: post_path(post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" }, class: "delete-form") do %>
+          <%= submit_tag "❌", class: "btn-delete" %> 
+         <% end %>
+         </div>
+
         <% end %>
-      </li>
-    <% end %>
-  </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

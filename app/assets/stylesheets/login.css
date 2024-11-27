@@ -2,23 +2,29 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f2f5;
-    margin: 0;
-    padding: 0;
+    margin:5px;
+    padding: 5px;
     color: #333;
-  }
-  
-  /* กำหนดพื้นที่สำหรับฟอร์ม Login */
-  .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
+  }
+  
+  /* กำหนดพื้นที่สำหรับฟอร์ม Login */
+  .login-container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    
   }
   
   /* ฟอร์ม Login */
   .login-form {
-    background-color: #fff;
+    
+    background-color: #9a8b8b;
     padding: 30px 40px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -30,14 +36,14 @@ body {
   .login-title {
     text-align: center;
     font-size: 2rem;
-    color: #007bff;
-    margin-bottom: 20px;
+    color: #333;
+    margin: 20px;
   }
   
   /* ป้ายและช่องกรอกข้อมูล */
   .form-label {
-    font-size: 1rem;
-    color: #555;
+    font-size:100px;
+    color: white;
   }
   
   .form-input {
@@ -51,7 +57,7 @@ body {
   }
   
   .form-input:focus {
-    border-color: #007bff;
+    border-color: #c00707;
     outline: none;
   }
   
@@ -61,15 +67,16 @@ body {
     padding: 12px;
     font-size: 1.2rem;
     color: white;
-    background-color: #007bff;
-    border: none;
+    background-color:transparent;
+    border:2px solid  #333;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
   .btn-login:hover {
-    background-color: #0056b3;
+    background-color: #333;
+    color: white;
   }
   
   .btn-login:active {
@@ -83,7 +90,7 @@ body {
   }
   
   .register-link-text {
-    color: #007bff;
+    color: blue;
     text-decoration: none;
     font-size: 1rem;
   }

@@ -1,112 +1,117 @@
 /* กำหนดพื้นหลัง */
 body {
-    font-family: 'Arial', sans-serif;
+  font-family: 'Arial', sans-serif;
     background-color: #f0f2f5;
-    margin: 0;
-    padding: 0;
+    margin:5px;
+    padding: 5px;
     color: #333;
-  }
-  
-  /* กำหนดพื้นที่สำหรับฟอร์ม Register */
-  .register-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-  }
+}
+
+/* กำหนดพื้นที่สำหรับฟอร์ม Register */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
   
-  /* ฟอร์ม Register */
-  .register-form {
-    background-color: #fff;
-    padding: 30px 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-  }
   
-  /* ส่วนหัวฟอร์ม */
-  .register-title {
-    text-align: center;
-    font-size: 2rem;
-    color: #007bff;
-    margin-bottom: 20px;
-  }
-  
-  /* แสดงข้อความ error */
-  #error_explanation {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  #error_explanation ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  #error_explanation li {
-    margin: 5px 0;
-  }
-  
-  /* ป้ายและช่องกรอกข้อมูล */
-  .form-label {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .form-input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  
-  .form-input:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  /* ปุ่ม Register */
-  .btn-register {
-    width: 100%;
+}
+
+/* ฟอร์ม Register */
+.register-form {
+  background-color: #9a8b8b;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ส่วนหัวฟอร์ม */
+.register-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin: 20px;
+}
+
+/* แสดงข้อความ error */
+#error_explanation {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#error_explanation ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#error_explanation li {
+  margin: 5px 0;
+}
+
+/* ป้ายและช่องกรอกข้อมูล */
+.form-label {
+  font-size: 1rem;
+  color: #555;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* ปุ่ม Register */
+.btn-register {
+  width: 100%;
     padding: 12px;
     font-size: 1.2rem;
     color: white;
-    background-color: #007bff;
-    border: none;
+    background-color:transparent;
+    border:2px solid  #333;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .btn-register:hover {
-    background-color: #0056b3;
-  }
-  
-  .btn-register:active {
-    transform: translateY(2px);
-  }
-  
-  /* ลิงค์ Login */
-  .login-link {
-    text-align: center;
-    margin-top: 15px;
-  }
-  
-  .login-link-text {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 1rem;
-  }
-  
-  .login-link-text:hover {
-    text-decoration: underline;
-  }
-  
+}
+
+.btn-register:hover {
+  background-color: #333;
+    color: white;
+}
+
+.btn-register:active {
+  transform: translateY(2px);
+}
+
+/* ลิงค์ Login */
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-link-text {
+  color: blue;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.login-link-text:hover {
+  text-decoration: underline;
+}

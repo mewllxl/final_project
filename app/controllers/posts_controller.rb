@@ -50,27 +50,14 @@ class PostsController < ApplicationController
   end
 
   def like
-    if current_user
-      if current_user.liked?(@post)
-        # ถ้าไลค์แล้ว ลบไลค์ออก
-        @post.likes.find_by(user_id: current_user.id).destroy
-        liked = false
-      else
-        # ถ้ายังไม่ไลค์ เพิ่มไลค์
-        @post.likes.create(user_id: current_user.id)
-        liked = true
-      end
-      @post.reload # รีเฟรชข้อมูลโพสต์
-      
-      # แสดงผลเป็น HTML และ render partial ที่ต้องการอัปเดต
-      respond_to do |format|
-        format.html { redirect_to @post } # รีไดเรกต์ไปยังโพสต์
-        format.js   # ทำการใช้ JavaScript (ตอบกลับแบบ .js.erb) เพื่ออัปเดตข้อมูลบนหน้า
-      end
+    if current_user.liked?(@post)
+      @post.likes.find_by(user_id: current_user.id).destroy
     else
-      redirect_to login_path, alert: "You must log in to like posts."
+      @post.likes.create(user_id: current_user.id)
     end
+    redirect_to root_path, notice: "Your like was updated!"
   end
+
 
   private
 
